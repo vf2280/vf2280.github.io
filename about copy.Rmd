@@ -1,0 +1,11 @@
+---
+title: "About Me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Professional and Academic Experience
+
+Attached is my [CV](Vasilios Fokaidis-CV.pdf). Please view it to find specific information regarding my professional and academic career.
