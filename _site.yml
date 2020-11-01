@@ -13,4 +13,4 @@ navbar:
       href: https://www.linkedin.com/in/vasilifokaidis3/
 output:
   html_document:
-    theme: cerulean 
+    theme: flatly 
