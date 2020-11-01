@@ -6,5 +6,6 @@ output:
     toc_float: true
 ---
 
-# This page has information about me
+# Professional and Academic Experience
 
+Attached is my [CV](Vasilios Fokaidis-CV.pdf). Please view it to find specific information regarding my professional and academic career.

@@ -6,7 +6,7 @@ output:
     toc_float: true
 ---
 
-## Intro page
+# Intro page
 
 ![](images/profile.jpg)
 
