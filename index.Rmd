@@ -16,7 +16,7 @@ My name is Vasili Fokaidis and I am a student in p8105. When I'm not working on 
 
 [About](about.html)
 
-# Links in site navigation for my email, Github account, and LinkedIn
+# Links in site navigation
 
 [Email](mailto:<vf2280@cumc.columbia.edu>),
 [Github](http://github.com/vf2280/),
