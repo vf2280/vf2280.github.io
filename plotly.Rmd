@@ -46,6 +46,9 @@ snow_plot =
   ) +
   theme_bw()
 
+ggplotly(snow_plot)
+
+
 
  
 ```
