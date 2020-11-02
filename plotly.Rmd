@@ -23,23 +23,29 @@ scale_colour_discrete = scale_colour_viridis_d
 scale_fill_discrete = scale_fill_viridis_d
 ```
 
+## Scatterplot
+
 ```{r}
 data("ny_noaa")
 
 snow_plot =
   ny_noaa %>%
+  mutate(
+    snow = snow/25.4
+  ) %>%
   filter(
-    date > "2009-01-01",
-    snow > "0"
+    "2008-07-01" < date,  
+    date < "2010-07-01",
+    snow > "1"
   ) %>%
   select(snow, date) %>%
   drop_na() %>%
   ggplot(aes(x = date, y  = snow)) + 
   geom_point(alpha = 0.5, aes(color = snow) ) +
    labs(
-    title = "Snowfall (mm) from 2009-2010",
+    title = "Snowfall (in) Comparison of NY Winters in 2009 and 2010 ",
     x = "date",
-    y = "snowfall (mm)"
+    y = "snowfall (in)"
   ) + 
     viridis::scale_color_viridis(
     discrete = FALSE
@@ -53,3 +59,4 @@ ggplotly(snow_plot)
  
 ```
 
+## Boxplot
