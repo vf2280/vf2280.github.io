@@ -6,12 +6,47 @@ output:
     toc_float: true
 ---
 
-We're going to look at Instacart, NY NOAA, an  NYC Restaurant Inspection data.
+We're going to look at NY NOAA data.
 
 ```{r}
 library(tidyverse)
 library(p8105.datasets)
 
 library(plotly)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+```{r}
+data("ny_noaa")
+
+snow_plot =
+  ny_noaa %>%
+  filter(
+    date > "2009-01-01",
+    snow > "0"
+  ) %>%
+  select(snow, date) %>%
+  drop_na() %>%
+  ggplot(aes(x = date, y  = snow)) + 
+  geom_point(alpha = 0.5, aes(color = snow) ) +
+   labs(
+    title = "Snowfall (mm) from 2009-2010",
+    x = "date",
+    y = "snowfall (mm)"
+  ) + 
+    viridis::scale_color_viridis(
+    discrete = FALSE
+  ) +
+  theme_bw()
+
+
+ 
 ```
 
