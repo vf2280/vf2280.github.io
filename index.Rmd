@@ -12,9 +12,10 @@ output:
 
 My name is Vasili Fokaidis and I am a student in p8105. When I'm not working on p8105 homework, I love being outdoors whether it's mountain biking, playing pick-up, or doing yard work! And when I'm not doing that, I'm probably out trying new coffee shops, or on yelp looking for new restaurants to try!
 
-# Link to other page in this site
+# Link to other pages in this site
 
 [About](about.html)
+[Plotly](plotly.html)
 
 # Links in site navigation
 
