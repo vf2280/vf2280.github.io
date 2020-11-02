@@ -1,0 +1,91 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(p8105.datasets)
+
+library(plotly)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+library(flexdashboard)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+ny_noaa %>%
+ 
+  filter(
+    "2008-07-01" < date,  
+    date < "2010-07-01"
+  ) %>%
+  mutate(
+    snow = snow/25.4
+  )  %>%
+  drop_na() %>%
+  plot_ly(
+    x = ~date,
+    y = ~snow,
+    color = ~snow,
+    colors = "viridis",
+    type = "scatter",
+    mode = "markers")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+ny_noaa %>%
+  mutate(
+    snow = round(snow/25.4, digits = 3)
+  ) %>%
+  filter(
+    snow > 1,
+    date > "2009-09-01", 
+    date < "2010-09-01"
+  ) %>%
+  drop_na() %>%
+  mutate(
+    id = fct_reorder(id, snow)
+  ) %>%
+  plot_ly(
+    y = ~snow,
+    x = ~id,
+    color = ~id,
+    type = "box",
+    colors = "viridis"
+  )
+```
+
+### Chart C
+
+```{r}
+ny_noaa %>%
+  count(id) %>%
+  mutate(
+  id =fct_reorder(id, n)
+  ) %>%
+  plot_ly(x = ~id, y = ~n, type = "bar", color = ~id, colors = "viridis")
+```
+

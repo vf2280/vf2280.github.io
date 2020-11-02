@@ -14,12 +14,12 @@ My name is Vasili Fokaidis and I am a student in p8105. When I'm not working on 
 
 # Link to other pages in this site
 
-[About](about.html)
+[About](about.html)\
 [Plotly](plotly.html)
 
 # Links in site navigation
 
-[Email](mailto:<vf2280@cumc.columbia.edu>),
-[Github](http://github.com/vf2280/),
+[Email](mailto:<vf2280@cumc.columbia.edu>)\
+[Github](http://github.com/vf2280/)\
 [LinkedIn](https://www.linkedin.com/in/vasilifokaidis3/)
 
