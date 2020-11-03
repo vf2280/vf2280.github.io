@@ -31,20 +31,19 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-ny_noaa %>%
- 
-  filter(
-    "2008-07-01" < date,  
-    date < "2010-07-01"
-  ) %>%
+ ny_noaa %>%
   mutate(
-    snow = snow/25.4
-  )  %>%
+    prcp = round(prcp/254, digits = 2)
+  ) %>%
+  filter(
+    date > "2010-10-01",
+    prcp > 0
+  ) %>%
   drop_na() %>%
   plot_ly(
-    x = ~date,
-    y = ~snow,
-    color = ~snow,
+    x = ~id,
+    y = ~prcp,
+    color = ~id,
     colors = "viridis",
     type = "scatter",
     mode = "markers")

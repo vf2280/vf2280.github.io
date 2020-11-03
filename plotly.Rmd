@@ -28,35 +28,22 @@ scale_fill_discrete = scale_fill_viridis_d
 ```{r}
 data("ny_noaa")
 
-snow_plot =
-  ny_noaa %>%
+ ny_noaa %>%
   mutate(
-    snow = snow/25.4
+    prcp = round(prcp/254, digits = 2)
   ) %>%
   filter(
-    "2008-07-01" < date,  
-    date < "2010-07-01",
-    snow > "1"
+    date > "2010-10-01",
+    prcp > 0
   ) %>%
-  select(snow, date) %>%
   drop_na() %>%
-  ggplot(aes(x = date, y  = snow)) + 
-  geom_point(alpha = 0.5, aes(color = snow) ) +
-   labs(
-    title = "Snowfall (in) Comparison of NY Winters in 2009 and 2010 ",
-    x = "date",
-    y = "snowfall (in)"
-  ) + 
-    viridis::scale_color_viridis(
-    discrete = FALSE
-  ) +
-  theme_bw()
-
-ggplotly(snow_plot)
-
-
-
- 
+  plot_ly(
+    x = ~id,
+    y = ~prcp,
+    color = ~id,
+    colors = "viridis",
+    type = "scatter",
+    mode = "markers")
 ```
 
 ## Boxplot
@@ -93,29 +80,6 @@ ny_noaa %>%
   id =fct_reorder(id, n)
   ) %>%
   plot_ly(x = ~id, y = ~n, type = "bar", color = ~id, colors = "viridis")
-```
-
-## potential scatter if i figure out x axis
-
-```{r}
-
- ny_noaa %>%
- 
-  filter(
-    "2008-07-01" < date,  
-    date < "2010-07-01"
-  ) %>%
-  mutate(
-    snow = snow/25.4
-  )  %>%
-  drop_na() %>%
-  plot_ly(
-    x = ~date,
-    y = ~snow,
-    color = ~snow,
-    colors = "viridis",
-    type = "scatter",
-    mode = "markers")
 ```
 
 
