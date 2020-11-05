@@ -24,7 +24,7 @@ f_2 = list(
   color = 'light gray')
 ```
 
-## Scatterplot
+## Scatter Plot
 
 ```{r}
 data("ny_noaa")
@@ -50,7 +50,7 @@ data("ny_noaa")
          yaxis = list(title = "Precipitation (in)", f_2))
 ```
 
-## Boxplot
+## Box Plot
 
 ```{r}
 ny_noaa %>%
