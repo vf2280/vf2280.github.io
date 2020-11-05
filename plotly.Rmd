@@ -48,8 +48,6 @@ data("ny_noaa")
   layout(title = "Scatter Plot of Precipitation (in) vs. Weather Station ID", font = f_1,
          xaxis = list(title = "Weather Station ID", f_2),
          yaxis = list(title = "Precipitation (in)", f_2))
- 
-
 ```
 
 ## Boxplot
