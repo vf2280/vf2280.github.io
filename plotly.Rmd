@@ -11,16 +11,17 @@ We're going to look at NY NOAA data.
 ```{r}
 library(tidyverse)
 library(p8105.datasets)
-
 library(plotly)
 
-options(
-  ggplot2.continuous.colour = "viridis",
-  ggplot2.continuous.fill = "viridis"
-)
+f_1 = list(
+  family = "sans serif",
+  size = 14,
+  color = 'light gray')
 
-scale_colour_discrete = scale_colour_viridis_d
-scale_fill_discrete = scale_fill_viridis_d
+f_2 = list(
+  family = "sans serif",
+  size = 10,
+  color = 'light gray')
 ```
 
 ## Scatterplot
@@ -43,7 +44,12 @@ data("ny_noaa")
     color = ~id,
     colors = "viridis",
     type = "scatter",
-    mode = "markers")
+    mode = "markers") %>%
+  layout(title = "Scatter Plot of Precipitation (in) vs. Weather Station ID", font = f_1,
+         xaxis = list(title = "Weather Station ID", f_2),
+         yaxis = list(title = "Precipitation (in)", f_2))
+ 
+
 ```
 
 ## Boxplot
@@ -68,7 +74,10 @@ ny_noaa %>%
     color = ~id,
     type = "box",
     colors = "viridis"
-  )
+  ) %>%
+  layout(title = "Box Plot of Recorded Snowfall (in) by Weather Station ID", font = f_1,
+         xaxis = list(title = "Weather Station ID", font = f_2),
+         yaxis = list(title = "Snowfall (in)", font = f_2))
 ```
 
 ## Bar plot
@@ -79,7 +88,10 @@ ny_noaa %>%
   mutate(
   id =fct_reorder(id, n)
   ) %>%
-  plot_ly(x = ~id, y = ~n, type = "bar", color = ~id, colors = "viridis")
+  plot_ly(x = ~id, y = ~n, type = "bar", color = ~id, colors = "viridis") %>%
+  layout(title = "Bar Plot of Number of Observations by Weather Station ID", font = f_1,
+         xaxis = list(title = "Weather Station ID", font = f_2),
+         yaxis = list(title = "Number of Observations", font = f_2))
 ```
 
 
